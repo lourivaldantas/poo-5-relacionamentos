@@ -1,31 +1,21 @@
-import { ItemPedido } from './item_pedido.js';
+import { Carrinho } from "./carrinho.js";
 export class Pedido {
-    _itens;
+    _carrinho;
     _valor_total;
-    constructor(_itens = [], _valor_total = 0) {
-        this._itens = _itens;
+    constructor(_carrinho, _valor_total = 0) {
+        this._carrinho = _carrinho;
         this._valor_total = _valor_total;
     }
-    get itens() {
-        return this._itens;
+    get carrinho() {
+        return this._carrinho;
     }
-    addItens(ip) {
-        this._itens.push(ip);
+    set carrinho(value) {
+        this._carrinho = value;
     }
     get valor_total() {
         return this._valor_total;
     }
-    calcValorTotal() {
-        let valorTotal = 0;
-        for (let i of this._itens) {
-            const valor = i.produto.valor;
-            const qntd = i.quantidade;
-            valorTotal += valor * qntd;
-        }
-        if (valorTotal == 0) {
-            return false;
-        }
-        this._valor_total = valorTotal;
-        return true;
+    obterValorTotal() {
+        this._valor_total = this._carrinho.calcValorTotal() ?? 0;
     }
 }

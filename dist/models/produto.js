@@ -1,12 +1,19 @@
 export class Produto {
-    _codigo;
+    _id;
     _valor;
+    _nome;
     _descricao;
-    get codigo() {
-        return this._codigo;
+    constructor(_id, _valor, _nome, _descricao) {
+        this._id = _id;
+        this._valor = _valor;
+        this._nome = _nome;
+        this._descricao = _descricao;
     }
-    set codigo(value) {
-        this._codigo = value;
+    get id() {
+        return this._id;
+    }
+    set id(value) {
+        this._id = value;
     }
     get valor() {
         return this._valor;
@@ -14,15 +21,16 @@ export class Produto {
     set valor(value) {
         this._valor = value;
     }
+    get nome() {
+        return this._nome;
+    }
+    set nome(value) {
+        this._nome = value;
+    }
     get descricao() {
         return this._descricao;
     }
     set descricao(value) {
         this._descricao = value;
-    }
-    constructor(_codigo, _valor, _descricao) {
-        this._codigo = _codigo;
-        this._valor = _valor;
-        this._descricao = _descricao;
     }
 }
