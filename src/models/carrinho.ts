@@ -26,7 +26,7 @@ export class Carrinho {
  
     diminuirQuantidade(it: ItemPedido) {
         const item = this.buscarItem(it)
-        if (item) {
+        if(item) {
             item.diminuirQuantidadeItens()
         }
     }
@@ -40,11 +40,8 @@ export class Carrinho {
     }
 
     calcValorTotal(): number | undefined {
-        let total: number = 0
-        for(let i of this._itens) {
-            if(i.quantidade < 1) return undefined
-            total += i.produto.valor * i.quantidade
-        }
+        if(this._itens.some(r => r.quantidade < 1)) return undefined
+        const total = this._itens.reduce((acc, n) => acc + n.produto.valor * n.quantidade, 0)
         return parseFloat(total.toFixed(2))
     }
 }

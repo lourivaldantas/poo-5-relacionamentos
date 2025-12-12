@@ -16,9 +16,9 @@ A ideia é, no futuro, implementar uma interface web pelo framework [Angular](ht
 
 ## Versões dos programas utilizados
 
-- Node: 24.11.1
-- Npm: 11.6.2
-- Tsc: 5.9.3
+| Node | Npm | Tsc |
+| :---: | :---: | :---: |
+| 24.11.1 | 11.6.2 | 5.9.3 |
 
 ## Sobre o autor
 
